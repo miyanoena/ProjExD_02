@@ -92,7 +92,9 @@ def main():
         pg.display.update()
         tmr += 1
         clock.tick(50)
-        clock.tick(50)
+        #accs = [a for a in range(1, 11)]
+        #avx, avy = vx*accs[min(tmr//500, 9)], vy*accs[min(tmr//500, 9)]
+        #bb_img = bb_img[min(tmr//500, 9)]
 
 
 if __name__ == "__main__":
