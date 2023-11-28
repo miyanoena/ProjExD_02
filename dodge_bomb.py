@@ -1,6 +1,7 @@
 import sys
 import pygame as pg
 import random
+import time
 
 WIDTH, HEIGHT = 1600, 900
 
@@ -25,6 +26,8 @@ def main():
     screen = pg.display.set_mode((WIDTH, HEIGHT))
     bg_img = pg.image.load("ex02/fig/pg_bg.jpg")
     kk_img = pg.image.load("ex02/fig/3.png")
+    cy_img = pg.image.load("ex02/fig/8.png")
+    new_width, new_height = 120, 120
     kk_img = pg.transform.rotozoom(kk_img, 0, 2.0)
     kk_img1 = pg.transform.flip(kk_img, True, False)
     muki = {
@@ -56,6 +59,11 @@ def main():
                 return
         
         if kk_rct.colliderect(bb_rct):
+            resize_image = pg.transform.scale(cy_img, (new_width, new_height))
+            resize_rect = resize_image.get_rect()
+            screen.blit(resize_image, kk_rct)
+            pg.display.update()
+            time.sleep(5)
             print("Game Over")
             return
             
